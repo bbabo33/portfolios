@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.together.amdin">
+   <resultMap type="foodVO" id="foodMap">
+      <result column="reg_date" property="regDate" />
+      <result column="view_cnt" property="viewCnt" />
+      <result column="open_time" property="openTime" />
+      <result column="close_time" property="closeTime" />
+      <result column="k_address" property="kAddress" />
+   </resultMap> 
+   <resultMap type="imgVO" id="imgMap">
+      <result column="file_orl_name" property="fileOrlName"></result>
+      <result column="file_save_name" property="fileSaveName"></result>
+   </resultMap>
+ 
+   <!-- 19-01-13 khj : 푸드 게시판 글 저장-->
+   <insert id="insertFood" parameterType="foodVO">
+      insert into to_food_tbl
+            (no, name, address, k_address, tel, open_time, close_time, offday, cate, content, food )
+      values (seq_food_board_no.nextval, #{name}, #{address}, #{kAddress}, #{tel}, #{openTime}, #{closeTime}, #{offday}, #{cate}, #{content}, #{food})
+   </insert> 
+   
+   <!-- 19-01-13 khj : 게시판 마지막 번호 출력 -->
+   <select id="selectFoodLastNo" resultType="int">
+      select seq_food_board_no.currval from dual
+   </select>
+   
+   <!-- 19-01-13 khj : 이미지 저장 -->
+   <insert id="insertImg" parameterType="imgVO">
+      insert into to_img_tbl(no, file_orl_name, file_save_name, boardno, tablename)
+      values (to_img_tbl_seq.nextval, #{fileOrlName}, #{fileSaveName}, #{boardno}, #{tablename})
+   </insert>
+   
+   <!-- 19-01-14 khj : 푸드게시판 글 삭제 -->
+   <delete id="foodDelete" parameterType="int">
+      delete to_food_tbl
+        where no = #{no}
+   </delete>
+
+   <!-- 19-01-14 khj : 이미지게시판에서 푸드 글 삭제 시 이미지 삭제 -->
+   <delete id="foodImgDelete" parameterType="int">
+      delete to_img_tbl
+       where boardno = #{boardno}
+            and tablename = 'food'
+   </delete>
+</mapper>

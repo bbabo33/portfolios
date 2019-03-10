@@ -1,0 +1,242 @@
+@charset "UTF-8";
+.card-img-top{
+   /* height: 20%; */
+    margin: 0;
+}
+.card{
+   width: 95%;
+}
+.card-body{
+   padding: 3%;
+}
+.text-muted{
+   float: left;
+}
+.phone-number{
+   float: right;
+}
+.board_viewCnt {
+   float: left;
+}
+.board_viewCnt i {
+    padding-right: 5px;
+}
+@media ( min-width :701px) and ( max-width :1200px) {
+}
+@media ( max-width :700px) {
+}
+
+/**************************음식게시판 상세글******************************/
+
+ @media ( min-width : 992px) {
+   /* 
+   .f_pick_box {
+         padding-top:40px;
+   }
+   .f_pick_detail {
+         overflow: hidden;
+   }
+   .f_pick_detail .f_pick_img {
+         float: left;
+        width: 50% !important;
+   }
+   .f_pick_detail .f_pick_info {
+         float: right;
+       width: 50%;
+       margin: 0 !important;
+       box-sizing: border-box;
+       padding-left: 15px;
+   }
+   .f_pick_text {
+        float: left;
+       padding-top: 30px !important;
+          width: 100%;
+   } */
+}
+
+@media ( max-width : 991.98px) {
+   .f_pick_cate button {
+      display: none;
+   }
+}
+.f_pick_cate {
+    font-size: 30px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1em;
+    padding: 0 0.2em 0.4em !important;;
+}
+.f_pick_cate button {
+   float: right;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #e89981;
+    background: #e89981;
+    color: #fff;
+    margin-top: 21px;
+    cursor: pointer;
+}
+.f_pick_detail {
+    overflow: hidden;
+}
+.f_pick_detail .f_pick_img {
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.f_pick_detail .f_pick_img img {
+   width: 100%;
+}
+.f_pick_detail .f_pick_map {
+   
+}
+.f_pick_detail .f_pick_map .food_map {
+   
+}
+.f_pick_detail .f_pick_map .food_map #map {
+   height: 500px;
+}
+.f_pick_detail .f_pick_info {
+    margin-top: 2em;
+}
+.f_pick_info .f_pick_title {
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 0.4em;
+    margin-bottom: 1em;
+}
+.f_pick_info .f_pick_title h4 {
+    float: left;
+    margin: 0;
+    padding-right: 10px;
+}
+.f_pick_info .f_pick_title p {
+    float: left;
+    margin: 0;
+    color: #999;
+}
+.f_pick_info .f_pick_title p:last-child {
+    float: right;
+    padding-right: 10px;
+}
+.f_pick_info .f_pick_title p i {
+    padding-right: 10px;
+}
+.f_pick_info .f_pick_detail {
+    list-style: none;
+    padding: 0 1em;
+    margin: 0;
+}
+.f_pick_info .f_pick_detail li {
+    /* height: 30px; */
+    line-height: 30px;
+    margin-bottom: 5px;
+}
+.f_pick_info .f_pick_detail li:nth-child(3) {
+   /* height: 60px; */
+}
+.f_pick_info .f_pick_detail li:nth-child(3) p {
+   margin-left: 35px;
+   margin-bottom: 0;
+}
+.f_pick_info .f_pick_detail li span {
+    background: url(/together/resources/images/foodBg.png) no-repeat;
+    text-indent: -9999rem;
+    overflow: hidden;
+    display: block;
+    float: left;
+    width: 25px;
+    height: 30px;
+    background-size: 125px;
+    margin-right: 0.5em;
+}
+.f_pick_info .f_pick_detail li:nth-child(1) span {
+    background-position: -25px;
+}
+.f_pick_info .f_pick_detail li:nth-child(3) span {
+    background-position: -50px;
+}
+.f_pick_info .f_pick_detail li:nth-child(4) span {
+    background-position: -75px;
+}
+.f_pick_detail .f_pick_text {
+    padding: 0 1em;
+    padding-bottom: 2em;
+}
+.f_pick_detail .f_pick_text p:first-child {
+    margin: 0;
+    line-height: 30px;
+    height: 30px;
+}
+.f_pick_detail .f_pick_text p:last-child {
+    margin: 0;
+   word-break: keep-all;
+    padding-left: 0.5em;
+}
+.f_pick_detail .f_pick_text p span {
+   background: url(/together/resources/images/foodBg.png) no-repeat;
+    text-indent: -9999rem;
+    overflow: hidden;
+    display: block;
+    float: left;
+    width: 25px;
+    height: 30px;
+    background-size: 125px;
+    margin-right: 0.5em;
+   background-position: -100px;
+}
+
+
+
+
+
+/* 메뉴 탭 */
+.food_tab_nav {
+   margin-bottom: 50px !important;
+    /* border: 1px solid #eee !important; */
+}
+.food_tab_nav li a {
+   color: #e89981;
+}
+/* .food_tab_nav li {
+    width: calc(100% / 4) !important;
+}   
+
+.food_tab_nav li a.active {
+    color: #fff!important;
+    border: none !important;
+    background: #e89981 !important;
+    border-radius: 0;
+} */
+.food_list_title {
+	text-align: left;
+    /* font-size: 18px; */
+    /* color: #333; */
+    line-height: 1.5;
+    height: 1.5em;
+    width: 100%;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* word-wrap: break-word; */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.food_list_con {
+    text-align: left;
+    /* font-size: 18px; */
+    /* color: #333; */
+    letter-spacing: -2px;
+    line-height: 1.5;
+    height: 1.5em;
+    width: 100%;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* word-wrap: break-word; */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}

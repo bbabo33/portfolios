@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.together">
+ 
+	<!-- 19-01-03 김현주 추가 -->
+   <select id="loginMember" parameterType="memberVO" resultType="memberVO">
+      select email, password, name, country, gender, inter, type, to_char(joindate, 'yyyy-mm-dd') as joindate, profile_img as profileImg
+        from to_user_default_tbl
+       where email= #{email} and password = #{password}
+   </select>
+   
+   <select id="selectByEmail" parameterType="String" resultType="memberVO">
+   	  select email, password, name, country, gender, inter, type, to_char(joindate, 'yyyy-mm-dd') as joindate, profile_img as profileImg
+        from to_user_default_tbl
+       where email= #{email}	
+   </select>
+   
+   <select id="beforeAccountUpdate" parameterType="memberVO" resultType="int">
+   	  select count(*)
+        from to_user_default_tbl
+       where email= #{email} and password = #{password}
+   </select>
+   
+   <update id="updateUser" parameterType="memberVO">
+		update to_user_default_tbl
+		   set name=#{name}, password=#{password},country=#{country},inter=#{inter, jdbcType=VARCHAR},profile_img=#{profileImg}
+		 where email=#{email}  
+   </update>
+   
+   <delete id="removeUser" parameterType="memberVO">
+   		delete from to_user_default_tbl
+   		 where email = #{email} and password= #{password}
+   </delete> 
+   
+   <!-- 19-01-09 khj 페이스북 아이디 유무 확인-->
+	<select id="fbIdCheck" parameterType="string" resultType="int">
+		select count(*) from to_User_Facebook_tbl
+		 where id = #{id}
+	</select>
+	
+	<!-- 19-01-09 khj 페이스북 회원 정보 넣어주기 -->
+	<insert id="fbInsert" parameterType="facebookVO">
+		insert into to_User_Facebook_tbl( id, email, name )
+		values ( #{id}, #{email}, #{name} ) 
+	</insert>
+	
+	<!-- 19-01-09 khj 페이스북 회원 정보 꺼내오기-->
+	<select id="loginFacebook" parameterType="string" resultType="facebookVO">
+		select id, email, name
+	         from to_User_Facebook_tbl
+	        where id = #{id}
+	</select>
+</mapper>

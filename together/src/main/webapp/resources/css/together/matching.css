@@ -1,0 +1,472 @@
+@charset "UTF-8";
+/*******************동행 글 쓰기*********************/
+@media ( min-width : 992px) {
+/*    #headerW {
+      width: calc(100% - 25%);
+      float: right;
+      z-index: 10;
+   }
+   .header_sub, .headerM {
+      display: none;
+   } */
+   .accompanyWrite {
+      width: 100%;
+   }
+   #map {
+      height: 500px;
+   }
+
+   #matchingAfter_pic {
+      height: 500px;
+   }
+   
+   /* 작성글 디테일( 작성글 + 댓글 중)  작성글 영역  */
+   #matching_DetailTbl {
+      width: 80%;
+      overflow: hidden;
+      margin: 0 auto;
+   }
+   .matching_Detail_Map {
+      width: 45%;
+      margin-right: 4%;
+      float: left;
+   }
+
+   /* 장소, 여행일정 등 텍스트 내용 영역 */
+   .matching_Detail_Info {
+      width: 51%;
+      float: left;
+   }
+   /* 댓글 쓰기 */
+   .parent {
+      width: 100%;
+   }
+   .parent textarea {
+       width: calc(80% - 42px);
+   }
+   .parent .parent_btn {
+      width: 20%;
+   }
+   .parent_list {
+      margin: 20px 130px;
+      width: 70%;
+   }
+}
+
+@media ( max-width : 991.98px) {
+   .accompanyWrite {
+      width: 100%;
+   }
+   #map {
+      height: 350px;
+   }
+
+   /* 작성글 디테일( 작성글 + 댓글 중)  작성글 영역  */
+   #matching_DetailTbl {
+      width: 100%;
+      margin: 0 auto;
+   }
+
+   /* 지도관련 */
+   .matching_Detail_Map {
+      width: 100%;
+      margin-bottom: 15px;
+   }
+   
+   /* 장소, 여행일정 등 텍스트 내용 영역 */
+   .matching_After_Detail_Info {
+      width: 100%;
+   }
+   
+   /* 장소, 여행일정 등 텍스트 내용 영역 */
+   .matching_Detail_Info {
+      width: 100%;
+   }
+   /* 댓글작성 */
+   .parent_write {
+      width: 100% !important;
+   }
+   .parent {
+      width: 100%;
+   }
+   .parent textarea {
+       width: calc(80% - 12px);
+       padding: 5px !important;
+       font-size: 12px !important;
+   }
+   .parent .parent_btn {
+      width: 20%;
+       font-size: 12px !important;
+       height: 82px !important;
+       line-height: 82px !important;
+   }
+   .parent_list {
+      margin: 20px 0px;
+      width: 90%;
+   }
+   #writer_img img {
+      margin: 0 !important;
+   }
+}
+/* 주소추가하면 나오는 div and button */
+.location_list {
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    padding: 5px;
+    margin-left: 10px;
+}
+.location_list_btn {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin: 0 10px 0 5px;
+    border-radius: 50%;
+    border: 0;
+    color: #666;
+    /* vertical-align: top; */
+    cursor: pointer;
+    /* line-height: 25px; */
+    background: #fff;
+}
+/***********************동행 후기 글 디테일*****************************/
+.matching_After_Detail_Info {
+   
+}
+.matching_After_Detail_Info .matching_After_Detail_title {
+    font-size: 1.25em;
+    text-align: center;
+    padding: 0 0 5% 0;
+}
+.after_Detail_Info {
+    padding: 0 10px 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+.after_Detail_Info .after_Detail_pro {
+    width: 50px;
+    height: 50px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    float: left;
+}
+.after_Detail_Info .after_Detail_pro img {
+   width: 100%;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -mo-transform: translate(-50%,-50%);
+    margin: 0;
+}
+.after_Detail_Info .after_Detail_name {
+    line-height: 50px;
+    margin-left: 5px;
+}
+.after_Detail_Info .after_Detail_date {
+    margin-left: 5px;
+    color: #999;
+}
+.after_Detail_Info .after_Detail_vCnt {
+    float: right;
+    line-height: 50px;
+    color: #666;
+}
+.matching_After_Detail {
+    padding: 5% 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+}
+.matching_After_Detail #matchingAfter_pic {
+    height: auto;
+    padding: 2%;
+}
+.matching_After_Detail #matchingAfter_pic img {
+   width: 100%;
+}
+/* 동행 게시글 작성 페이지 css
+    여행지역 검색에 필요한 위치 및 버튼(여행위치추가, 등록) 설정 
+ */
+.form-travelSpot {
+   padding-bottom: 7px;
+}
+
+.form-travelSpot-top {
+   overflow: hidden;
+}
+
+#travelSpotInfo {
+   float: left;
+}
+
+#travelSpotBtn, #accompanyWriteBtn {
+   float: right;
+}
+
+.accompanyWriteBtn {
+   padding-top: 2px !important;
+   padding-bottom: 2px !important;
+   padding-left: 4px !important;
+   padding-right: 4px !important;
+}
+
+.datePakage dl {
+   margin: 0;
+}
+
+
+.datePakage dl dd {
+   
+}
+.datePakage textarea {
+	width: 100%;
+}
+.datePakage dl dd input[type=text] {
+    width: 150px;
+}
+.form-travel_con {
+   width: 100% !important;
+}
+.form-travel_btn {
+   text-align: right;
+}
+.remarks_checkbox label {
+	width: 100px;
+    display: inline-block;
+    float: initial;
+}
+/*******************동행 글 상세*********************/
+/* 프로필 */
+.writer_simpleInfo {
+    overflow: hidden;
+    width: 220px;
+    cursor: pointer;
+}
+   /* 작성자 프로필사진 관련 */
+#writer_img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    border-radius: 50%;
+    float: left;
+    margin-right: 20px;
+    border: 1px solid #efefef;
+}
+#writer_img img {
+   width: 100%;
+   display: block;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   -webkit-transform: translate(-50%, -50%);
+   -moz-transform: translate(-50%, -50%);
+   -mo-transform: translate(-50%, -50%);
+}
+
+#writer_profile {
+   float: left;
+}
+
+#matching_Detail_writerInfo {
+   height: 30%;
+   position: relative;
+}
+
+#matching_Detail_writerInfo a.talk_btn {
+    position: absolute;
+    top: 36px;
+    left: 220px;
+    font-size: 14px;
+    border-radius: 5px;
+    background: #c7c7c7;
+    border: none;
+    padding: 4px 10px;
+    font-weight: bold;
+    display: none;
+    cursor: pointer;
+    color: #333;
+}
+#matching_Detail_writerInfo a.talk_btn:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #c7c7c7;
+    position: absolute;
+    top: 10px;
+    left: -3px;
+    -webkit-transform: rotate(-45deg);
+    
+}
+
+/* 장소, 여행일정 등 텍스트 내용 영역 */
+.matching_Detail_Info div:nth-child(2n) {
+    font-size: 14px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    line-height: 1.7;
+}
+
+.space {
+   clear: both;
+   margin-bottom: 30px;
+}
+/* 작성글 디테일( 작성글 + 댓글 중)  댓글 영역  */
+.matching_Detail_replyTbl {
+   width: 80%;
+   margin: 0 auto;
+}
+
+.matching_Detail_Info .title {
+   font-size: 17px;
+}
+
+/* 동행 게시글 답글 테이블 */
+.matchingCommentTbl {
+   width: 80%;
+   margin: 0 auto;
+}
+
+.matchingCommentTbl div {
+   font-size: 20px;
+}
+
+.matchingCommentTbl dl {
+   overflow: hidden;
+}
+
+.matchingCommentTbl dt {
+   width: 90%;
+   background-color: #f2f2f2;
+   float: left;
+}
+
+.matchingCommentTbl dd {
+   width: 10%;
+   background-color: #1ed25f;
+   float: left;
+}
+
+.matchingCommentTbl dl dt #textA {
+   overflow-y: auto;
+}
+
+/* 댓글쓰기 영역 */
+.parent_write {
+   padding: 20px 0px;
+   width: 80%;
+   margin: 0 auto;
+}
+
+.parent_write p {
+   border: none;
+   font-size: 16px;
+   margin-bottom: 5px;
+}
+
+.parent {
+   margin: 0 auto;
+   overflow: hidden;
+}
+
+.parent textarea {
+   overflow-y: auto;
+   height: 58px;
+   padding: 20px;
+   border: 1px solid #ddd;
+   background: #f2f2f2;
+   font-size: 15px;
+   line-height: 20px;
+   resize: none;
+   outline: none;
+   vertical-align: top;
+   box-sizing: content-box;
+   float: left;
+}
+
+.parent .parent_btn {
+    display: block;
+    float: left;
+    height: 100px;
+    background: #e89981;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    box-sizing: border-box;
+}
+
+/* 댓글 목록 */
+.parent_list {
+   border-top: 2px solid #ddd;
+   border-bottom: 2px solid #ddd;
+}
+
+.parent_list ul {
+   padding-left: 10px;
+}
+
+.parent_list ul li {
+   padding: 25px 0;
+   position: relative;
+   list-style-type: none;
+}
+
+.parent_list ul li:not(:first-child ) {
+   border-top: 1px solid #ddd;
+}
+
+li .parent_con {
+   
+}
+
+li .parent_con span:nth-child(1) {
+   display: inline-block;
+   padding-right: 6px;
+   font-size: 14px;
+   font-weight: 400;
+   color: #000;
+   vertical-align: middle;
+}
+
+li .parent_con span:nth-child(2) {
+   display: inline-block;
+   font-size: 14px;
+   font-weight: 400;
+   color: #959595;
+}
+
+li .parent_con p {
+   margin-top: 10px;
+   font-size: 13px;
+   font-weight: 400;
+   color: #666;
+   line-height: 24px;
+   word-break: break-all;
+   padding: 0;
+   border: none;
+   margin-bottom: 0;
+}
+
+li .parent_subBtn {
+   position: absolute;
+   top: 25px;
+   right: 10px;
+   padding: 2px 4px;
+   font-size: 12px;
+   border-radius: 2px;
+   border: 1px solid #666;
+   background: #fff;
+   color: #666;
+   cursor: pointer;
+}

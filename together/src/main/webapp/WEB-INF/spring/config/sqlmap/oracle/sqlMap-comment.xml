@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.together.comment">
+
+	<resultMap type="commentVO" id="commentMap">
+		<result column="regdate" property="regdate"></result>
+	</resultMap>
+
+	<select id="selectAllcom" resultMap="commentMap"
+		parameterType="map">
+		select no, writer,content,boardno,
+		to_char(regDate,'yyyy-mm-dd') as
+		regdate
+		from to_comment_tbl
+		where
+		tablename = #{tablename} and boardno = #{boardno}
+		order by no desc
+	</select>
+	<insert id="insertcom" parameterType="commentVO">
+		insert into
+		to_comment_tbl(no,writer,content,boardno,regdate,tablename)
+		values(to_comment_tbl_seq.nextval,#{writer},#{content},#{boardno},sysdate,#{tablename})
+	</insert>
+	<delete id="deletecom" parameterType="int">
+		delete
+		from to_comment_tbl
+		where no = #{no}
+	</delete>
+</mapper>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.together">
+   <resultMap type="imgVO" id="imageMap">
+      <result column="file_save_name" property="fileSaveName" />
+      <result column="file_orl_name" property="fileOrlName" />
+   </resultMap>
+   
+   <resultMap type="foodVO" id="foodMap">
+      <result column="open_time" property="openTime" />
+      <result column="close_time" property="closeTime" />
+      <result column="reg_date" property="regDate" />
+      <result column="view_cnt" property="viewCnt" />
+      <result column="k_address" property="kAddress" />
+   </resultMap>
+   
+   <select id="selectAllFoodList" resultMap="foodMap" >
+      select *
+        from to_food_tbl
+       order by no desc
+   </select>
+
+   <select id="selectFoodList" resultMap="foodMap" parameterType="string">
+      select *
+        from to_food_tbl
+       where cate = #{food} order by no desc
+   </select>
+
+   
+   <select id="selectImageList" resultMap="imageMap" parameterType="string">
+      select *
+        from to_img_tbl
+       where tablename = #{tablename} order by no desc
+   </select>
+   
+   <!-- 음식게시판 디테일 글 -->
+   <select id="selectFoodDetail" resultMap="foodMap" parameterType="int">
+      select no, name, address, k_address, tel, open_time, close_time, offday, cate, content, food, view_cnt, to_char(reg_date,'yyyy-mm-dd') as reg_date
+        from to_food_tbl
+       where no = #{no}
+   </select>
+   
+   <!-- 음식게시판 디테일 이미지 -->
+   <select id="selectImage" resultMap="imageMap" parameterType="int">
+      select *
+        from to_img_tbl
+       where no = #{no}
+   </select>
+
+
+   <insert id="insertMatching" parameterType="matchingVO">
+      insert into
+      to_matching_tbl(no, title, writer, matchingMsg, matchingTime,
+      matchingDate, languages, remarks, korLocations, engLocations,email)
+      values(seq_matching_board_no.nextval,#{title},#{writer},#{matchingMsg},#{matchingTime},#{matchingDate},#{languages},#{remarks},#{korLocations},#{engLocations},#{email})
+   </insert>
+
+   <select id="selectAll" resultType="matchingVO">
+      select no, title, writer, matchingMsg, matchingTime, matchingDate, languages, remarks, korLocations, engLocations, regDate, email
+      from to_matching_tbl
+      order by no desc
+   </select>
+
+
+   <select id="selectByNo" parameterType="int"
+      resultType="matchingVO">
+      select no, title, writer, matchingMsg, matchingTime,
+      matchingDate, languages, remarks, korLocations, engLocations, regDate,
+      email
+      from to_matching_tbl
+      where no = #{no}
+   </select>
+
+   <select id="selectrec" resultType="matchingVO">
+      select *
+      from (
+      select *
+      from to_matching_tbl
+      order by no desc)
+      where <![CDATA[ROWNUM <= 3]]> 
+   </select>
+   
+   <select id="totalBoardCnt" resultType="int">
+      select count(*)
+        from to_matching_tbl  
+   </select>
+   
+   <select id="selectBoardByIndex" parameterType="map" resultType="matchingVO">
+   <![CDATA[
+   select X.*
+     from ( 
+       select rownum as rnum, A.*
+         from (
+           select *
+             from to_matching_tbl
+            order by no desc) A) X
+    where X.rnum between ${startBoard} and ${endBoard}
+   ]]>    
+   </select> 
+   
+   <select id="selectMatchingByEmail" parameterType="String" resultType="matchingVO">
+   		select *
+   		  from to_matching_tbl
+   		 where email = #{email}
+   </select>
+   
+   
+   <!-- <resultMap type="boardVO" id="boardMap"> <result column="reg_date" 
+      property="regDate"></result> </resultMap> <select id="selectAll" resultType="boardVO"> 
+      select no, title, writer, to_char(reg_date,'yyyy-mm-dd') as regDate from 
+      t_board order by no desc </select> <insert id="insertboard" parameterType="boardVO"> 
+      insert into t_board(no, title, writer, content) values(tbl_board_no.nextval,#{title},#{writer},#{content}) 
+      </insert> <select id="selectByNo" resultMap="boardMap" parameterType="int"> 
+      select no, title, writer, content ,to_char(reg_date, 'yyyy-mm-dd') as reg_date 
+      from t_board where no = #{no} </select> <update id="incrementReplyCnt" parameterType="int"> 
+      update t_board set reply_cnt = reply_cnt + 1 where no = #{no} </update> <update 
+      id="decrementReplyCnt" parameterType="int"> update t_board set reply_cnt 
+      = reply_cnt - 1 where no = #{no} </update> -->
+</mapper>

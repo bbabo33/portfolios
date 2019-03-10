@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="kr.co.together.vo.ImageVO" alias="imgVO"/>
+		<typeAlias type="kr.co.together.vo.reviewVO" alias="reviewVO"/>
+		<typeAlias type="kr.co.together.vo.MemberVO" alias="memberVO"/>
+		<typeAlias type="kr.co.together.vo.MatchingVO" alias="matchingVO"/>
+		<typeAlias type="kr.co.together.vo.CommentVO" alias="commentVO"/>
+		<typeAlias type="kr.co.together.vo.msgVO" alias="msgVO"/>
+		<typeAlias type="kr.co.together.vo.FacebookVO" alias="facebookVO"/>
+		<typeAlias type="kr.co.together.vo.FoodVO" alias="foodVO"/>
+		<typeAlias type="kr.co.together.vo.RoomVO" alias="RoomVO"/>
+		<!-- <typeAlias type="kr.co.mlec.board.vo.BoardVO" alias="boardVO"/>
+		<typeAlias type="kr.co.mlec.board.vo.MemberVO" alias="memberVO"/>
+		<typeAlias type="kr.co.mlec.reply.vo.ReplyVO" alias="replyVO"/> -->
+	</typeAliases>
+</configuration>

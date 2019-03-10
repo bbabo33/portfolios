@@ -1,0 +1,249 @@
+@charset "UTF-8";
+/* admin */
+.topMenuAdmin {
+   width: 100% !important;
+}
+
+.chartdiv {
+   flex: 0 0 100%;
+   max-width: 100%;
+}
+h4 {
+   
+}
+.piecanvas{
+   width: 50%;
+   float:left;
+}
+@media (max-width: 650px) {
+   .piecanvas{
+      display:none;
+   }
+   
+}
+.topMenuAdmin {
+   width: 100%;
+}
+/* userInfo */
+.scrolltable {
+   height:500px;
+   width:100%;
+    display: block;
+    overflow: auto;
+    float:none;
+}
+.acent{
+   text-align: center;
+   float: none;
+}
+th{
+   color: black;
+}
+/* 글 등록 공용 */
+.admin_write {
+    border-top: 2px solid #959da6;
+    border-bottom: 1px solid #ccc;
+    width: 80%;
+    margin: 0 auto;
+}
+.admin_write tr {
+   border-bottom: 1px solid #eee;
+}
+.admin_write tr:last-child {
+   border-bottom: none;
+}
+.admin_write tr th {
+   line-height: 46px;
+    font-size: 14px;
+    text-align: left;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background: #f6f6f6;
+    font-weight: normal;
+    height: 50px;
+    width: 160px;
+}
+.admin_write tr td {
+   line-height: 22px;
+    font-size: 14px;
+    padding: 0 20px !important;
+    box-sizing: border-box;
+}
+.admin_write input {
+    float: left;
+    width: 100%;
+    border: 1px solid #ededed;
+    border-radius: .25rem;
+    height: 30px;
+    padding: 0 10px;
+}
+.admin_write input[type=text] {
+   
+}
+.admin_write input[type=tel] {
+   
+}
+.admin_write select {
+    display: block;
+    width: 50%;
+    padding: 0 0.75rem;
+    line-height: 1.5;
+    color: #1b1b1b !important;
+    font-size: 14px;
+    box-shadow: none !important;
+    background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-size: 20px;
+    border: 1px solid #ededed;
+    border-radius: .25rem;
+    height: 30px;
+}
+.admin_write textarea {
+    float: left;
+    width: 100%;
+    border: 1px solid #ededed;
+    border-radius: .25rem;
+    height: 180px;
+    padding: 0 10px;
+}
+   /*  주소, 지도  */
+.admin_write .admin_map {
+   
+}
+.admin_write .admin_map td {
+   padding: 10px 20px !important;
+}
+.admin_write .admin_map .map_input_box {
+   overflow: hidden;
+   padding-bottom: 10px;
+}
+.admin_write .admin_map .map_input_box span {
+   width: calc(100% - 55px);
+    float: left;
+    border: 1px solid #ededed;
+    border-radius: .25rem;
+    height: 30px;
+    /* padding: 0 10px; */
+}
+.admin_write .admin_map .map_input_box span:nth-child(1) {
+   display: none;
+}
+
+.admin_write .admin_map .map_input_box span input[type=text] {
+    border: none;
+    height: 28px;
+}
+.admin_write .admin_map .map_input_box button {
+    float: left;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 3px 10px;
+    cursor: pointer;
+    margin-left: 5px;
+    background: #f3f3f3;
+    border: 1px solid #ddd;
+    color: #333;
+}
+.admin_write .admin_map .food_map {
+   
+}
+.admin_write .admin_map .food_map #map {
+   height: 300px;
+}   
+   /* 전화번호 */
+.admin_write .tel {
+   
+}
+.admin_write .tel td {
+   
+}
+.admin_write .tel td input[type=tel] {
+    width: 70px;
+    text-align: center;
+}
+.admin_write .tel td span {
+    display: block;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    color: #999;
+    width: 20px;
+}
+   /* 영업시간 */
+.admin_write .resTime {
+   
+}
+.admin_write .resTime td {
+   
+}
+.admin_write .resTime td input[type=text] {
+    width: 60px;
+}
+.admin_write .resTime td span {
+    display: block;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+}
+.admin_write .resTime td span:nth-child(3) {
+   margin-left: 10px;
+}
+   /* 휴무일 */
+.admin_write .resOff td {
+    padding: 10px 20px !important;
+}
+.admin_write .resOff td label {
+    width: 90px;
+    text-align: left;
+    font-size: 13px;
+}
+.admin_write .resOff td input[type=checkbox] {
+   margin-right: 5px;
+}
+   /* 첨부파일 */
+.admin_write .admin_file th {
+    vertical-align: top;
+}
+.admin_write .admin_file input[type=file] {
+    padding: 0;
+    border: none;
+    margin: 2px 0;
+    font-size: 13px;
+    color: #666;
+}
+.admin_write .admin_file input[type=file]:first-child {
+   margin-top: 10px;
+}
+.admin_write .admin_file input[type=file]:last-child {
+    margin-bottom: 10px;
+}
+   /* 글쓰기 버튼 취소,submit */
+.write_btn {
+    text-align: center;
+    margin-top: 30px;
+}   
+.write_btn button {
+    background: #e89981;
+    border: 1px solid #e89981;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.write_btn button:first-child {
+    margin-right: 5px;
+    background: #f3f3f3;
+    border: 1px solid #ddd;
+   color: #333;
+}
+/* 음식 글쓰기 */
+.food_write .food_info th {
+    vertical-align: top;
+}
+.food_write .food_info td {
+    padding: 10px 20px !important;
+}

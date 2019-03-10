@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.together.review">
+	<resultMap type="reviewVO" id="reviewMap">
+		<result column="reg_date" property="regDate"></result>
+		<result column="view_cnt" property="viewCnt"></result>
+		<result column="comment_cnt" property="commentCnt"></result>
+	</resultMap>
+	<resultMap type="imgVO" id="imgMap">
+		<result column="file_orl_name" property="fileOrlName"></result>
+		<result column="file_save_name" property="fileSaveName"></result>
+	</resultMap>
+
+	<select id="selectAllrev" resultMap="reviewMap">
+		select no, writer,
+		title,content,
+		to_char(reg_date,'yyyy-mm-dd') as
+		reg_date,view_cnt,comment_cnt,email
+		from to_review_tbl
+		order by no desc
+	</select>
+	<insert id="insertrev" parameterType="reviewVO">
+		insert into
+		to_review_tbl(no, writer, title,content,
+		reg_date,view_cnt,comment_cnt,email)
+		values(to_review_tbl_seq.nextval,#{writer},#{title},#{content},sysdate,0,0,#{email})
+	</insert>
+	<insert id="insertrevimg" parameterType="imgVO">
+		insert into
+		to_img_tbl(no, file_orl_name, file_save_name,boardno,
+		tablename)
+		values(to_img_tbl_seq.nextval,#{fileOrlName},#{fileSaveName},#{boardno},#{tablename})
+	</insert>
+	<select id="selectOnerev" resultMap="reviewMap"
+		parameterType="int">
+		select no, writer, title,content,
+		to_char(reg_date,'yyyy-mm-dd') as reg_date,view_cnt,comment_cnt,email
+		from
+		to_review_tbl
+		where no = #{no}
+	</select>
+	<select id="selectrevlastno" resultType="int">
+		<!-- select nvl(no,0) from( 개짓했네
+		select no
+		from to_review_tbl
+		order by rownum desc
+		)
+		where rownum = 1 -->
+		select TO_REVIEW_TBL_SEQ.currval from dual
+	</select>
+	<select id="selectAllrevimg" resultMap="imgMap" parameterType="int">
+		select *
+		from to_img_tbl
+		where boardno = #{boardno}
+		order by no asc
+	</select>
+	<select id="revimages" resultMap="imgMap">
+		select *
+		from to_img_tbl
+		where tablename = 'review'
+		order by no asc
+	</select>
+	<update id="revupdate" parameterType="reviewVO">
+		update to_review_tbl
+		set title = #{title},
+			content = #{content}
+		where no = #{no}
+	</update>
+	<update id="revimgupdate" parameterType="imgVO">
+		update to_img_tbl
+		set file_orl_name = #{fileOrlName},
+			file_save_name = #{fileSaveName}
+		where boardno = #{boardno} and tablename = 'review'
+	</update>
+	<delete id="revdelete" parameterType="int">
+		delete 
+		from to_review_tbl
+		where no = #{no}
+	</delete>
+	<delete id="revimgdelete" parameterType="int">
+		delete 
+		from to_img_tbl
+		where boardno = #{boardno} and tablename = 'review'
+	</delete>
+	<select id="selectReviewByEmail" parameterType="String" resultType="reviewVO">
+		select *
+		  from to_review_tbl
+		 where email = #{email} 
+	</select>
+</mapper>
