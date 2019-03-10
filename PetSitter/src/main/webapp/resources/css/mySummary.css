@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+#confirmText{
+	font-weight: bold;
+	margin :40px;
+}
+
+#confirmText span{
+	color : #ce2434;
+}
+
+.center_column{
+	text-align: center;
+}
+
+.summaryTable{
+	width : 70% !important;
+	margin : 0 auto;	
+}
+
+div.center_column p{
+	font-size : 27px;
+	margin : 40px;
+}
+
+table tbody tr td,th{
+	vertical-align: middle !important;
+}
+
+img{
+	width:100%;
+	height:400px;
+}
+
+
+
+
+

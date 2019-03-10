@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.petSitter">
+
+	<resultMap type="reviewVO" id="reviewMap">
+		<result column="review_no" property="no"></result>
+		<result column="review_good" property="good"></result>
+		<result column="review_bad" property="bad"></result>
+		<result column="review_oripic" property="oriPic"></result>
+		<result column="review_serpic" property="serPic"></result>
+		<result column="review_date" property="reviewDate"></result>
+		<result column="review_title" property="title"></result>
+	</resultMap>
+ 
+	<insert id="reviewUp" parameterType="reviewVO">
+		insert into pet_dolbomreview_tbl(review_no,review_good,review_bad,review_oripic,review_serpic,review_title)
+		values (#{no},#{good},#{bad},#{oriPic},#{serPic},#{title})
+	</insert>
+	
+	<select id="reviewAll" resultMap="reviewMap">
+		select *
+		  from pet_dolbomreview_tbl 
+	</select>
+	
+</mapper>

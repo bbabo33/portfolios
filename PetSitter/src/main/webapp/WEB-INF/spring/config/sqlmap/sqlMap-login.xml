@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.petSitter">
+
+	<resultMap type="userVO" id="userMap">
+		<result column="addr_detail" property="detailAddr"></result>
+		<result column="pet_kind" property="pet"></result>
+		<result column="join_date" property="joinDate"></result>
+	</resultMap>
+ 
+	<insert id="joinUser" parameterType="userVO">
+		insert into pet_user_tbl(id, name, password, addr, addr_detail, phone, pet_kind)
+		values(#{id},#{name},#{password},#{addr},#{detailAddr},#{phone},#{pet})
+	</insert>
+	
+	<select id="loginUser" parameterType="userVO" resultMap="userMap">
+		select *
+		  from pet_user_tbl
+		 where id=#{id} and password=#{password}   
+	</select>
+	
+	<update id="updateUser" parameterType="userVO">
+		update pet_user_tbl
+		   set name = #{name},
+		   	   password = #{password},
+		   	   addr = #{addr},
+		   	   addr_detail = #{detailAddr},
+		   	   phone = #{phone},
+		   	   pet_kind = #{pet}
+		 where id = #{id}  	   
+	</update> 
+	
+	<select id="idCheck" parameterType="String" resultType="int">
+		select count(*)
+		  from pet_user_tbl
+		 where id=#{id} 
+	</select>
+	 
+	<!-- 
+	<resultMap type="boardVO" id="boardMap">
+		<result column="reg_date" property="regDate"></result>
+	</resultMap>
+
+  <select id="selectAll" resultType="boardVO">
+  	select no, title, writer, to_char(reg_date,'yyyy-mm-dd') as regDate
+  	from t_board
+  	order by no desc
+  </select>
+  <insert id="insertboard" parameterType="boardVO">
+  	insert into t_board(no, title, writer, content)
+	values(tbl_board_no.nextval,#{title},#{writer},#{content})
+  </insert>
+  -->
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.petSitter">
+
+	<resultMap type="bookVO" id="bookMap">
+		<result column="book_no" property="no"></result>
+		<result column="book_addr" property="bookLocation"></result>
+		<result column="book_time" property="bookingDate"></result>
+		<result column="book_servicetime" property="bookServiceTime"></result>
+		<result column="book_phone" property="bookingPhone"></result>
+		<result column="book_name" property="bookingName"></result>
+		<result column="book_remark" property="bookingInfo"></result>
+		<result column="book_status" property="bookStatus"></result>
+		<result column="book_id" property="bookingId"></result>
+		<result column="book_date" property="rollDate"></result>
+	</resultMap>
+	
+	<resultMap type="dolbomVO" id="dolbomMap">
+		<result column="book_no" property="no"></result>
+		<result column="dolbom_toilet" property="toilet"></result>
+		<result column="dolbom_food" property="food"></result>
+		<result column="dolbom_play" property="play"></result>
+		<result column="dolbom_needs" property="needs"></result>
+		<result column="dolbom_walk" property="walk"></result>
+		<result column="dolbom_remark" property="remark"></result>
+		<result column="dolbom_date" property="dolbomDate"></result>
+	</resultMap> 
+ 
+ 	<select id="selectAllBook" resultMap="bookMap">
+ 		select *
+ 		  from pet_reservation_tbl
+ 	</select>
+ 	
+ 	<select id="selectPageInfo" parameterType="int" resultMap="bookMap">
+ 		select *
+ 		  from pet_reservation_tbl
+ 		 where book_no = #{no} 
+ 	</select>
+ 	
+ 	<select id="searchInfo" parameterType="String" resultMap="bookMap">
+ 		select * 
+ 		  from pet_reservation_tbl
+ 		 where book_time = #{date}
+ 	</select>
+	
+	<insert id="DolbomWrite" parameterType="dolbomVO">
+		insert into pet_dolbom_adminWrite(book_no ,dolbom_toilet ,dolbom_food ,dolbom_play ,dolbom_needs ,dolbom_walk ,dolbom_remark)
+		values(#{no}, #{toilet}, #{food}, #{play}, #{needs}, #{walk}, #{remark})
+	</insert>
+	
+	<select id="seeDolbomWrite" parameterType="int" resultMap="dolbomMap">
+		select *
+		  from pet_dolbom_adminWrite
+		 where book_no = #{no} 
+	</select>
+</mapper>

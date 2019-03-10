@@ -1,0 +1,102 @@
+@charset "UTF-8";
+/* joinForm css */
+
+#selectBtn{
+	vertical-align: baseline;
+	padding : 8px !important;
+}
+
+.textAlert{
+	font-size : 13px;
+	margin-left : 14px;
+	color : red;
+}
+
+body{
+	background: #f2f4fd !important;
+}
+
+table tr th{
+	padding-bottom: 13px;
+}
+
+div#bg_joinForm {
+	margin : 5% auto;
+	width : 75%;
+	
+}
+
+div#bg_joinForm div.cen{
+		
+	text-align : center;
+	font-size: 30px;
+}
+
+div#bg_joinForm form{
+	padding : 20px;
+}
+
+div#bg_joinForm form table{
+	width : 95%;
+	margin : 20px auto;
+}
+
+div#bg_joinForm form div input[name=joinBtn]{
+	margin : 0 auto;
+}
+
+div#bg_joinForm form table tr th{
+	text-align: right;
+	width : 25%;
+}
+
+div#bg_joinForm form table tr th#terms{
+	vertical-align: top;
+	padding-top: 10px;
+}
+
+div#bg_joinForm form table tr td{
+	text-align: left;
+	width : 65%;
+}
+
+div#bg_joinForm form table tr td input,
+div#bg_joinForm form table tr td textarea{
+	margin : 15px;
+    width: 60%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+div#bg_joinForm form table tr td textarea{
+	margin : 15px 15px 0px 15px;
+}
+
+div#bg_joinForm form table tr td input[name=tel1],
+div#bg_joinForm form table tr td input[name=tel2],
+div#bg_joinForm form table tr td input[name=tel3]{
+	 width: 13%;
+}
+
+div#bg_joinForm form table tr td input[name=animal]{
+	width : 5%;
+}
+div#bg_joinForm form table tr td input[name=terms]{
+	width : 2%;
+}
+div#bg_joinForm form table tr td input[name=userId],
+div#bg_joinForm form table tr td input[name=addr]{
+	margin : 15px 0px 15px 15px;
+}
+div#bg_joinForm form table tr td input[type=button]{
+	width :11%;
+	margin : 0px 15px 0px 0px; 
+	font-size : 13px;
+}

@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+#title{
+	margin : 20px 0px;	
+}
+
+#smallText{
+	font-size : 15px;
+}
+
+#sub_title{
+	margin-top : 40px;
+	margin-bottom : 40px;
+}
+
+.notiBoard{
+    width :70%;
+	border: 2px solid #219fdf;
+    padding: 42px 75px 40px;
+    margin: 40px auto;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.notiBoard div{
+	margin-bottom : 7px;
+}
+
+.center_column{
+	text-align: center;
+	margin : 20px auto;
+}
+
+.bookFormInput{
+    width: 50%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.textA{
+	width: 94%;
+}
+
+.addrChgBtn{
+	margin-left : 106px;
+	vertical-align: bottom;
+}
+
+.radioBtns{
+	margin-bottom: 43px !important;
+}
+
+.stGroup{
+	padding-bottom: 28px;
+	float : left !important;
+	margin-right : 28px;
+}
+
+.reservationAlert{
+	font-size : 13px;
+	color : red;
+	margin-left : 2%;
+}
+
+input[type=radio]{
+	margin-right :7px;
+}
+
+form div p strong{
+	font-size : 18px;
+}
+
+form div p strong span{
+	font-size : 27px;
+	margin-bottom : 20px;
+}
+
+form div p b{
+	font-size : 18px;
+	text-decoration: underline;
+} 
+

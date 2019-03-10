@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+#accordion{
+	width : 80% ;
+	margin : 40px auto ;
+	text-align: left;
+}
+
+.sub_title:hover,
+button[aria-expanded=true]{
+	color : #0a4484 !important;
+}
+
+.btn-link{
+	color : black !important;
+	text-decoration: none !important;
+}
+
+.card-header{
+	background: #f2f4fd !important; 
+}
+
+.card-body{
+	margin-left : 50px;
+}
+
+.card-body span{
+	color : red;
+}
+
+.sub_title{
+	margin-left : 10px;
+}
+
+#confirmText{
+	font-weight: bold;
+	margin :40px;
+	font-size : 18px;
+}
+
+.center_column{
+	text-align: center;
+}
+
+div.center_column p{
+	font-size : 27px;
+	margin : 40px;
+}
+
+.card{
+	border : none !important;
+}
+
+.addComment{
+	margin-top : 20px;
+}

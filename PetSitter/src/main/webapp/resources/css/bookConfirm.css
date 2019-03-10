@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+#confirmText{
+	font-weight: bold;
+	margin :40px;
+}
+
+#confirmText span{
+	color : red;
+}
+
+#animalInfo{
+	width : 100%;
+	border: 1px solid #c0c0c0;
+    padding: 42px 68px 40px;
+    text-align: left;
+    border-radius: 5px;
+}
+
+#bookingCancelBtn{
+	margin-left : 87%;
+	right : 130px;
+	bottom : 1px;
+}
+
+.center_column{
+	text-align: center;
+}
+
+div.center_column p{
+	font-size : 27px;
+	margin : 40px;
+}
+
+.confirmBoard{
+	width : 60%;
+	border: 2px solid #b1adfc;
+    padding: 42px 68px 2px;
+    text-align: left;
+    border-radius: 5px;
+    margin : 20px auto;
+}
+
+.confirmBoard div{
+	margin : 10px 0px; 
+}
+
+.confirmBoard div span{
+	color : #618bfc; 
+}
+
+.confirmBoard div strong{
+	margin-left : 42px; 
+}

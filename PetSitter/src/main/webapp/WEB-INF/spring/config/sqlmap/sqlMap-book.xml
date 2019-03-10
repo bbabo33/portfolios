@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.petSitter">
+
+	<resultMap type="bookVO" id="confirmMap">
+		<result column="book_no" property="no"></result>
+		<result column="book_addr" property="bookLocation"></result>
+		<result column="book_time" property="bookingDate"></result>
+		<result column="book_servicetime" property="bookServiceTime"></result>
+		<result column="book_phone" property="bookingPhone"></result>
+		<result column="book_name" property="bookingName"></result>
+		<result column="book_remark" property="bookingInfo"></result>
+		<result column="book_id" property="bookingId"></result>
+		<result column="book_status" property="bookStatus"></result>
+		<result column="book_date" property="rollDate"></result>
+	</resultMap> 
+ 
+ 	<insert id="insertBooking" parameterType="bookVO">
+ 		insert into pet_reservation_tbl(book_no, book_addr, book_time, book_servicetime, book_phone, book_name, book_remark, book_id)
+ 		values(pet_reservation_tbl_seq.nextval, #{bookLocation},#{bookingDate},#{bookServiceTime},#{bookingPhone},#{bookingName},#{bookingInfo},#{bookingId})
+ 	</insert>
+ 
+ 	<select id="confirmList" parameterType="String" resultMap="confirmMap">
+ 		select *
+ 		  from pet_reservation_tbl
+ 		 where book_id = #{id} 
+ 	</select>
+ 	
+ 	<update id="bookCancel" parameterType="int">
+ 		update pet_reservation_tbl
+ 		   set book_Status = 'C'
+ 		 where book_no = #{no}
+ 	</update>
+ 	
+ 	<update id="changeStatus" parameterType="dolbomVO">
+ 		update pet_reservation_tbl
+ 		   set book_Status = #{chgStatus}
+ 		 where book_no = #{no}
+ 	</update>
+ 	
+ 
+	
+</mapper>

@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+#reviewHead{
+	position : absolute;
+    color: black;
+    z-index: 2;
+	top : 20%;
+	left : 44%;
+	z-index : 2;
+    text-align: center;
+	font-weight: bold;
+	font-size : 27px;
+}
+
+#reviewBody{
+	position : absolute;
+    color : black;
+    z-index: 2;
+	top : 55%;
+	left : 32%;
+	z-index : 2;
+    text-align: center;
+	font-weight: bold;
+	font-size : 20px;
+}
+
+.review_head{
+	position : relative;
+	width : 100%;
+	height : 300px;
+	text-align: center;
+	z-index : 1;
+	opacity : 0.8;
+	background-position: center; 
+}
+
+.notiBoard{
+    width :70%;
+	border: 2px solid #219fdf;
+    padding: 42px 75px 40px;
+    margin: 40px auto;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.bookFormInput{
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.floatText{
+	float : left;
+}
+
+.uploadPic{
+	margin-left : 60px;
+}
+
+.formBtn{
+	margin : 0px  0px 40px 81%;;
+}
+
+div p strong{
+	margin-left : 10px;
+}
+
