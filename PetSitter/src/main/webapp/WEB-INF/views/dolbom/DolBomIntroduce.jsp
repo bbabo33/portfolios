@@ -12,8 +12,7 @@
 <head>
 
 	<meta charset="utf-8">
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
@@ -25,7 +24,7 @@
 	<!-- topMenu + scss, css파일 -->
 	<jsp:include page="/WEB-INF/views/topMenu/topMenu.jsp" />
 
-	<div class="bg_div" style="background-image: url('${pageContext.request.contextPath}/resources/images/dog_bed.jpg');">
+	<div class="bg_div" style="background-image: url('${pageContext.request.contextPath}/resources/images/dog_bed.jpg'); ">
 		<div class="bg_insideDiv">
 			<div>혼자 있는 시간이 많은</div> 
 			<div>우리 반려견에게 </div>

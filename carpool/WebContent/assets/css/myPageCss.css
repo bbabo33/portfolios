@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+div.myProfileArea {
+	width: 80%;
+	margin: 0 auto;
+}
+
+section {
+	width:1200px !important;
+}
+
+section #menuNav li {
+	list-style: none;
+	width: 100%;
+	text-align: left;
+	height: 35px;
+	line-height: 35px;
+	background-color: #CADBE9;
+	padding: 5px;
+	font-size: 15px;
+}
+
+#menuNav li a:visited, #menuNav li a:link {
+	color: black;
+}
+
+section div.myProfileArea div.wrap {
+	width: 70%;
+	float: left;
+	margin: 0;
+	text-align: center;
+}
+
+section div.myProfileArea table td, section div.myProfileArea table, th
+	{
+	background-color: white !important;
+	border: 1px solid #CADBE9;
+}
+
+section div.myProfileArea table td {
+	
+}
+
+section div.myProfileArea table, th {
+	
+}
+
+div#myProfileMenu {
+	float: right;
+	width: 30%;
+}
+
+#menuNav {
+	width: 100%;
+}
+
+.profileMenu {
+	padding: 0 50px;
+}
+
+.profileMenu h3 {
+	font-size: 25px;
+	margin: 0;
+}
+
+#reserv_list span.cell{
+	font-size:15px;	
+}

@@ -41,8 +41,9 @@
 				   months:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월',],
 				   dayOfWeek:["일", "월", "화", "수","목", "금", "토"]
 				  }},
-		     timepicker:true,
+		     timepicker:false,
 		     step : 20,
+		     format:"Y/m/d"
 		     //minDate:'-1970/01/01'	//오늘부터 캘린더 픽 할 수 있게 만듦   
 		});
 	});
@@ -71,9 +72,11 @@
       </h1>
 
       <div class="breadcrumb">
-      		<div>
+      		<div id="searchBar">
 	      		<form action="${pageContext.request.contextPath}/admin/search">
-	      			<input type="text" class="bookFormInput" name="searchDate" value="날짜" readonly><input type="text" class="bookFormInput" name="searchInput" readonly><input type="button" class="btn btn-primary adminSearch" value="검색">
+	      			<input type="text" class="bookFormInput" name="searchDate" value="날짜" readonly>
+	      			<input type="text" class="bookFormInput" name="searchInput" readonly>
+	      			<input type="button" name="admin_search" class="btn btn-primary adminSearch" value="검색">
 	      		</form>
 	      	</div>	
       </div>

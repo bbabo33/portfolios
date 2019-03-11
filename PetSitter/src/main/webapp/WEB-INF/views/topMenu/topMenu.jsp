@@ -59,7 +59,7 @@
 	   if(data ==1){
 		   location.href="${pageContext.request.contextPath}";   
 	   }else{
-			alert('loginFail'+data);
+			alert('로그인에 실패하였습니다. 다시 확인해주세요');
 			location.href="${pageContext.request.contextPath}";	  
 	   }
    }

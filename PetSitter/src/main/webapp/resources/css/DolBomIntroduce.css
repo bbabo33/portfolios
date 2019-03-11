@@ -2,10 +2,11 @@
 
 
 .bg_div{
-	width :100%;
+	min-width :100%;
 	height : 570px;
 	position : relative;
 	z-index : 1;
+	background-size: cover;
 }
 
 .bg_insideDiv{
@@ -79,7 +80,7 @@
 	height : 400px;
 	position : absolute;
 	top : 35px;
-	left : 25%;
+	left : 26%;
 	border : 5px solid white;
 }
 
@@ -88,7 +89,7 @@
 	height : 270px;
 	position : absolute;
 	top : 50px;
-	left : 20%;
+	left : 23%;
 	z-index : 2;
 	border : 5px solid white;
 }
@@ -96,7 +97,7 @@
 .con_moveBody{
 	position : relative;
 	width : 100%;
-	height : 500px;
+	height : 578px;
 }
 
 .con_moveBody div{
@@ -107,5 +108,5 @@
 
 .con_moveBody img{
 	width : 100%;
-	height : 70%;
+	height : 100%;
 }

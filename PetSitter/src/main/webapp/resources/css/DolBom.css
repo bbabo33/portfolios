@@ -101,7 +101,7 @@ h2{
 
 div h4,p{
 	width: 100%;
-    height: 27px;
+	height: 38px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -113,6 +113,10 @@ div h4 a{
 
 div p{
 	color : #1e18fc;
+}
+
+#sub_content{
+	color : black;
 }
 
 

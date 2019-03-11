@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+ol.commentBox {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+li.comment_wrap {
+	width: 70%;
+	margin: 20px auto;
+	min-height: 60px;
+}
+
+div#comment_profile {
+	position: absolute;
+}
+
+div#comment_info {
+	text-align: left;
+	margin-left: 70px;
+}
+
+span#comment_writer {
+	font-size: 23px;
+}
+span#comment_date {
+	font-size: 15px;
+}
+span#comment_content {
+	font-size: 18x;
+}
+
+div#comment_content {
+	text-align: left;
+	margin-left: 70px;
+}

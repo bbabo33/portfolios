@@ -88,8 +88,16 @@ div.breadcrumb div{
 
 input[name=searchDate]{
 	width :5%;
+	border-radius:5px 0px 0px 5px !important; 
 }
 
 input[name=searchInput]{
 	width :15%;
+	border-radius:0px 0px 0px 0px !important;
+	margin:-5px !important; 
+}
+
+input[name=admin_search]{
+	border-radius:0px 5px 5px 0px !important;
+	vertical-align: top !important;
 }
