@@ -89,7 +89,7 @@
 	}
 	
 	function bookError(data){
-		alert("bookError :"+data);
+		alert("예약 과정중 문제가 발생하였습니다.\n 다시시도해주세요");
 	}
 	
 </script>
@@ -175,7 +175,7 @@
 			</div>
 			
 			<div class="notiBoard">		
-				<p><strong>6. 반려동물 정보<span id="smallText">(이름, 종, 성별, 나이, 몸무게, 중성화 여부, 예방접종 여부)</span> 및  특이사항을 알려주세요</strong><br><span id="book_info_alert" class="reservationAlert"></span></p>
+				<p id="animal_info"><strong>6. 반려동물 정보<span id="smallText">(이름, 종, 성별, 나이, 몸무게, 중성화 여부, 예방접종 여부)</span> 및  특이사항을 알려주세요</strong><br><span id="book_info_alert" class="reservationAlert"></span></p>
 				<textarea class="bookFormInput textA" name="bookingInfo" placeholder="돌봄플래너가 참고할 수 있는 정보를 기재해 주세요 "></textarea>
 			</div>
 						

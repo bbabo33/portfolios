@@ -17,15 +17,20 @@
 		
 		/* 취소버튼 눌렀을 때 */
 		$('input[type=button]').click(function(){
-			
-			var no =$(this).parent().siblings()[0];
-			$.ajax({
-				url :'${pageContext.request.contextPath}/booking/cancelReservation',
-				data : {no : no.value }, 
-				type : 'get',
-				success : cancelReserSuccess,
-				error : cancelReserFail
-			})
+			var fullCancelDate=$(this).parent().parent().find('strong')[1].innerText;
+			var cancelDateString = fullCancelDate.split(" ")[0];
+			if(dateCompare(cancelDateString)){
+				var no =$(this).parent().siblings()[0];
+				$.ajax({
+					url :'${pageContext.request.contextPath}/booking/cancelReservation',
+					data : {no : no.value }, 
+					type : 'get',
+					success : cancelReserSuccess,
+					error : cancelResertFail
+				}); 	
+			}else{
+				alert('예약 취소 3일보다 적게 남았습니다. 전화로 문의해주세요');
+			}
 		});
 	});
 	
@@ -34,8 +39,29 @@
 		location.href="${pageContext.request.contextPath}/booking/confirm";
 	}
 	
-	function cancelReserFail(data){
-		alert("fail");
+	function cancelResertFail(data){
+		alert("서버상 문제가 발생했습니다. 다시 시도해주세요");
+	}
+	
+	function dateCompare(cancelDateString){
+		
+		var ArrCancelDate = cancelDateString.split("/");
+		var y = ArrCancelDate[0];
+		var m = ArrCancelDate[1];
+		var d = ArrCancelDate[2];
+		//3일 전까지 가능하므로 오늘과 비교하기 위해 날짜 셋팅을 바꾼다
+		var today = new Date();
+		cancelDate = new Date(y,m-1,d-3);
+		today.setHours(00);
+		today.setMinutes(00);
+		today.setSeconds(00);
+		today.setMilliseconds(00);
+		
+		if(cancelDate>= today) {
+			return true
+		}else{
+			return false
+		}
 	}
 	
 </script>
@@ -58,7 +84,7 @@
 			<p><strong>펫시팅 예약확인</strong></p>
 			<div id="confirmText">
 				펫시팅 예약하신 내용을 확인할 수 있습니다<br>
-				<span>예약 취소</span>는 예약날짜 하루 전까지 가능합니다
+				<span>예약 취소</span>는 예약날짜 3일 전까지 가능합니다
 			</div>
 			
 			<!-- 예약한 건수(예약대기) 확인 -->

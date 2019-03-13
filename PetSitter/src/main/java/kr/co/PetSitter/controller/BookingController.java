@@ -54,9 +54,9 @@ public class BookingController {
 		System.out.println("bookingController bookCancel bookNo:"+ bookNo);
 		int cancelCnt = rService.bookCancel(bookNo);
 		if(cancelCnt == 1) {
-			msg = "¿¹¾àÀ» Ãë¼ÒÇÏ¿´½À´Ï´Ù";
+			msg = "ì˜ˆì•½ì´ ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤";
 		}else {
-			msg = "¿¹¾àÀ» Ãë¼ÒÇÏÁö ¸øÇß½À´Ï´Ù";
+			msg = "ì˜ˆì•½ì´ ì·¨ì†Œë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤. ë‹¤ì‹œí•œë²ˆ í™•ì¸í•´ì£¼ì„¸ìš”";
 		}
 		System.out.println(msg);
 		return msg;

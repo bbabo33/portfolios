@@ -22,14 +22,20 @@ function reservationCheck(){
 		return false;
 	}
 	
-	if($('input[name=bookingName').val() == ""){
+	if($('input[name=bookingName]').val() == ""){
 		$('#book_name_alert').html("예약하시는 분의 성함을 입력해주세요");
 		$('input[name=bookingName]').focus();
 		return false;
 	}
 	
-	if($('textarea[name=bookingInfo').val() == ""){
+	if($('textarea[name=bookingInfo]').val() == ""){
 		$('#book_info_alert').html("반려동물의 정보를 입력해주세요");
+		$('textarea[name=bookingInfo]').focus();
+		return false;
+	}
+	
+	if($('textarea[name=bookingInfo]').val().length > 380){
+		$('#book_info_alert').html("반려동물의 정보가 너무 깁니다.\n 간략히 작성해주세요");
 		$('textarea[name=bookingInfo]').focus();
 		return false;
 	}
