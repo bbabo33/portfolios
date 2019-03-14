@@ -1,6 +1,8 @@
 package kr.co.PetSitter.daoImpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +29,14 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public List<BookVO> searchInfo(String date) {
-		return sql.selectList("kr.co.petSitter.searchInfo", date);
+	public List<BookVO> searchInfo(String searchCate, String searchDate) {
+		System.out.println("adminDao SearchCate:"+searchCate);
+		System.out.println("adminDao SearchDate:"+searchDate);
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("searchCate", searchCate);
+		map.put("searchDate", searchDate);
+		return sql.selectList("kr.co.petSitter.searchInfo", map);
 	}
 
 	@Override

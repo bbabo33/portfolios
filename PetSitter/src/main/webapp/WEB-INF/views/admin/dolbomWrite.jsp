@@ -23,20 +23,34 @@
 	</c:if>
 
 	$(document).ready(function(){
+		//처음 검색 전 기본셋팅
+		if($('.selectpicker option:selected').val() == "날짜"){
+			$('#peoplePick_input').addClass('disappearInput');
+		}
+		// select option에 따른 검색 input 변경
+		$('.selectpicker').click(function(){
+			if($('.selectpicker option:selected').val() == "예약자명"){
+				$('#peoplePick_input').removeClass('disappearInput');
+				$('#datePick_input').addClass('disappearInput');
+			}else if($('.selectpicker option:selected').val() == "날짜"){
+				$('#peoplePick_input').addClass('disappearInput');
+				$('#datePick_input').removeClass('disappearInput');
+			}
+		});
 		
 		$('.activeBtn').click(function(){
 			var no = $(this).parent().attr('class');
 			location.href="${pageContext.request.contextPath}/admin/pageInfo/"+no;
 		});
 		
-		$('.adminSearch').click(function(){
-			$('form').submit();
+		$('input[name=admin_search]').click(function(){
+			readySearch();
 		});
 		
 		/* $를 두개의 js 파일이 사용하고 있다. 기본 js 대신에 noConflict를 사용하여 $를 datetime.js가 사용하도록함*/
 		jQuery.noConflict();
 		$.datetimepicker.setLocale('ko');
-		$('input[name=searchInput]').datetimepicker({
+		$('#datePick_input').datetimepicker({
 			 i18n:{ ko:{
 				   months:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월',],
 				   dayOfWeek:["일", "월", "화", "수","목", "금", "토"]
@@ -47,6 +61,18 @@
 		     //minDate:'-1970/01/01'	//오늘부터 캘린더 픽 할 수 있게 만듦   
 		});
 	});
+	
+	function checkEnter(event){
+		if(event.key == "Enter"){
+			readySearch();
+		}
+	}
+	
+	function readySearch(){
+		$('input[name=searchCate]').val($('.selectpicker option:selected').val());
+		console.log($('input[name=searchCate]').val());
+		$('form').submit();
+	}
 </script>
 	
 	<meta charset="utf-8">
@@ -74,8 +100,13 @@
       <div class="breadcrumb">
       		<div id="searchBar">
 	      		<form action="${pageContext.request.contextPath}/admin/search">
-	      			<input type="text" class="bookFormInput" name="searchDate" value="날짜" readonly>
-	      			<input type="text" class="bookFormInput" name="searchInput" readonly>
+					<select class="selectpicker"> 
+						<option>날짜</option> 
+						<option>예약자명</option>  
+					</select>
+					<input type="hidden" class="bookFormInput" name="searchCate">
+	      			<input type="text" id="datePick_input" class="bookFormInput" name="searchDate" readonly>
+	      			<input type="text" id="peoplePick_input" class="bookFormInput" name="searchDate" onkeypress="checkEnter(event)">
 	      			<input type="button" name="admin_search" class="btn btn-primary adminSearch" value="검색">
 	      		</form>
 	      	</div>	

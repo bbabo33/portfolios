@@ -27,8 +27,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<BookVO> searchInfo(String date) {
-		return adao.searchInfo(date);
+	public List<BookVO> searchInfo(String searchCate, String searchDate) {
+		return adao.searchInfo(searchCate, searchDate);
 	}
 
 	@Override

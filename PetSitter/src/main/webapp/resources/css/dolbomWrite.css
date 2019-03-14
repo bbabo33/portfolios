@@ -38,8 +38,13 @@
 	font-size : 18px;
 }
 
+.disappearInput{
+	display: none;
+}
+
 .bookFormInput{
-    width: 50%;
+	width:13%;
+	margin:-4px;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -47,7 +52,6 @@
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
-    border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
@@ -74,6 +78,12 @@
     width: 100%;
 }
 
+.selectpicker{
+	height: 36px;
+	border-style: none;
+	border-radius: 5px 0 0 5px;
+}
+
 table tr td,th{
 	vertical-align: inherit !important;
 }
@@ -86,11 +96,6 @@ div.breadcrumb div{
 	display :block;
 }
 
-input[name=searchDate]{
-	width :5%;
-	border-radius:5px 0px 0px 5px !important; 
-}
-
 input[name=searchInput]{
 	width :15%;
 	border-radius:0px 0px 0px 0px !important;
@@ -99,5 +104,5 @@ input[name=searchInput]{
 
 input[name=admin_search]{
 	border-radius:0px 5px 5px 0px !important;
-	vertical-align: top !important;
+	vertical-align: baseline !important;
 }

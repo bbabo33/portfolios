@@ -35,24 +35,36 @@
 	            $('#myModal').css('display','none');
 	        }
 	    });
+	    
+	    
 	   
 		$('span[id=loginBtn]').click(function(){
-			$.ajax({
-				url : '${pageContext.request.contextPath}/login/login',
-				data : {
-					id : $('input[name=id]').val(),
-					password : $('input[name=password]').val()
-				},
-				type : 'post',
-				success : loginSuccess,
-				error : loginFail
-			});
+			loginAjax();
 		});
 	
 		$('span[id=enrollBtn]').click(function(){
 			location.href="${pageContext.request.contextPath}/login/joinForm";
 		});
 	});
+   
+   function enterCheck(event){
+	   if(event.key == "Enter"){
+		   loginAjax();
+	   }
+   }
+   
+   function loginAjax(){
+	   $.ajax({
+			url : '${pageContext.request.contextPath}/login/login',
+			data : {
+				id : $('input[name=id]').val(),
+				password : $('input[name=password]').val()
+			},
+			type : 'post',
+			success : loginSuccess,
+			error : loginFail
+		});
+   }
    
    function loginSuccess(data){
 	   
@@ -79,9 +91,9 @@
         <span class="close">&times;</span>
 	        <div>                                                            
 		       	 아이디<input type="text" class="form-control" name="id" >
-		   		 패스워드<input type="password" class="form-control" name="password">
+		   		 패스워드<input type="password" class="form-control" name="password" onkeypress="enterCheck(event)">
 	   		</div>
-   		<span class="btn btn-primary loginBtn" id="loginBtn">DOG IN</span>
+   		<span class="btn btn-primary loginBtn" id="loginBtn" >DOG IN</span>
    		<span class="btn loginBtn" id="enrollBtn">회원가입</span>
    		      
       </div>

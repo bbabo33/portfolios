@@ -18,14 +18,28 @@
 
 <script>
 	$(document).ready(function(){
+		//처음 검색 전 기본셋팅
+		if($('.selectpicker option:selected').val() == "날짜"){
+			$('#peoplePick_input').addClass('disappearInput');
+		}
+		// select option에 따른 검색 input 변경
+		$('.selectpicker').click(function(){
+			if($('.selectpicker option:selected').val() == "예약자명"){
+				$('#peoplePick_input').removeClass('disappearInput');
+				$('#datePick_input').addClass('disappearInput');
+			}else if($('.selectpicker option:selected').val() == "날짜"){
+				$('#peoplePick_input').addClass('disappearInput');
+				$('#datePick_input').removeClass('disappearInput');
+			}
+		});
 		
 		$('.activeBtn').click(function(){
 			var no = $(this).parent().attr('class');
 			location.href="${pageContext.request.contextPath}/admin/pageInfo/"+no;
 		});
 		
-		$('.adminSearch').click(function(){
-			$('#searchDate').submit();
+		$('input[name=admin_search]').click(function(){
+			readySearch();
 		});
 		
 		$('#adminFormBtn').click(function(){
@@ -46,6 +60,18 @@
 		     //minDate:'-1970/01/01'	//오늘부터 캘린더 픽 할 수 있게 만듦   
 		});
 	});
+	
+	function checkEnter(event){
+		if(event.key == "Enter"){
+			readySearch();
+		}
+	}
+	
+	function readySearch(){
+		$('input[name=searchCate]').val($('.selectpicker option:selected').val());
+		console.log($('input[name=searchCate]').val());
+		$('form').submit();
+	}
 </script>
 	
 	<meta charset="utf-8">
@@ -71,10 +97,15 @@
       </h1>
 
       <div class="breadcrumb">
-      		<div>
-	      		<form id="searchDate" action="${pageContext.request.contextPath}/admin/search">
-	      			<input type="text" class="bookFormInput" name="searchDate" value="날짜" readonly>
-	      			<input type="text" class="bookFormInput" name="searchInput" readonly>
+      		<div id="searchBar">
+	      		<form action="${pageContext.request.contextPath}/admin/search">
+					<select class="selectpicker"> 
+						<option>날짜</option> 
+						<option>예약자명</option>  
+					</select>
+					<input type="hidden" class="bookFormInput" name="searchCate">
+	      			<input type="text" id="datePick_input" class="bookFormInput" name="searchDate" readonly>
+	      			<input type="text" id="peoplePick_input" class="bookFormInput" name="searchDate">
 	      			<input type="button" name="admin_search" class="btn btn-primary adminSearch" value="검색">
 	      		</form>
 	      	</div>	

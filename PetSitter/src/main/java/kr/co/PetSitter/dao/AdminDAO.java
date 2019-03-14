@@ -9,7 +9,7 @@ public interface AdminDAO {
 
 	public List<BookVO> DolBomWrite();
 	public BookVO pageInfo(int no);
-	public List<BookVO> searchInfo(String date);
+	public List<BookVO> searchInfo(String searchCate, String searchDate);
 	public int adminDolbom(DolbomVO dolbom);
 	public int changeStatus(DolbomVO dolbom);
 	public DolbomVO seeDolbomWrite(int no);

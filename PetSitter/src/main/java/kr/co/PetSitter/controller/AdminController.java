@@ -49,9 +49,13 @@ public class AdminController {
 	}
 	
 	@GetMapping("/admin/search")
-	public ModelAndView searchInfo(String searchInput) {
-		//System.out.println("adminCon searchInfo searchDate : "+searchInput);
-		List<BookVO> bookList = aService.searchInfo(searchInput);
+	public ModelAndView searchInfo(String searchCate, String searchDate) {
+		//검색시 name=searchDate가 예약자명, 날짜 검색으로 두가지 종류로 한번에 서버로 보내기 때문에 ,를 포함한 문자열로 온다.
+		if(searchDate.indexOf(",") != -1) {
+			searchDate = searchDate.replace(",","");
+		}
+		System.out.println("adminCon searchInfo searchCate : "+searchDate);
+		List<BookVO> bookList = aService.searchInfo(searchCate, searchDate);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("bookList", bookList);
 		mav.setViewName("admin/dolbomWrite_result");

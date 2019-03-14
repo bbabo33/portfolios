@@ -39,10 +39,18 @@
  		 where book_no = #{no} 
  	</select>
  	
- 	<select id="searchInfo" parameterType="String" resultMap="bookMap">
+ 	<select id="searchInfo" parameterType="map" resultMap="bookMap">
  		select * 
  		  from pet_reservation_tbl
- 		 where book_time = #{date}
+ 		  <where>
+ 		  	<if test='searchCate == "날짜" '>
+ 		  		book_time like '${searchDate}%'
+ 		  	</if>
+ 		  	<if test='searchCate == "예약자명"'>
+ 		  		book_name like '%${searchDate}%'
+ 		  	</if>
+ 		  	
+ 		  </where>
  	</select>
 	
 	<insert id="DolbomWrite" parameterType="dolbomVO">
