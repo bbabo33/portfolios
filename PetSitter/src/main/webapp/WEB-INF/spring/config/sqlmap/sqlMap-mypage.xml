@@ -20,8 +20,15 @@
 	</insert>
 	
 	<select id="reviewAll" resultMap="reviewMap">
-		select *
-		  from pet_dolbomreview_tbl 
+		<!-- select *
+		  from pet_dolbomreview_tbl -->
+		 select *
+ 		   from 
+        		( select *
+           			from pet_dolbomreview_tbl
+          		   order by review_date desc
+       			)
+		  where rownum <![CDATA[ <= ]]> 3 
 	</select>
 	
 </mapper>

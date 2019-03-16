@@ -17,20 +17,16 @@
 <head>
 
 <script>
+	var optionVal;
+
 	$(document).ready(function(){
 		//처음 검색 전 기본셋팅
 		if($('.selectpicker option:selected').val() == "날짜"){
-			$('#peoplePick_input').addClass('disappearInput');
+			defaultSearch();
 		}
 		// select option에 따른 검색 input 변경
 		$('.selectpicker').click(function(){
-			if($('.selectpicker option:selected').val() == "예약자명"){
-				$('#peoplePick_input').removeClass('disappearInput');
-				$('#datePick_input').addClass('disappearInput');
-			}else if($('.selectpicker option:selected').val() == "날짜"){
-				$('#peoplePick_input').addClass('disappearInput');
-				$('#datePick_input').removeClass('disappearInput');
-			}
+			defaultSearch();
 		});
 		
 		$('.activeBtn').click(function(){
@@ -39,7 +35,7 @@
 		});
 		
 		$('input[name=admin_search]').click(function(){
-			readySearch();
+			readySearch(optionVal);
 		});
 		
 		$('#adminFormBtn').click(function(){
@@ -61,16 +57,53 @@
 		});
 	});
 	
+	function defaultSearch(){
+		optionVal = $('.selectpicker option:selected').val();
+		console.log(optionVal);
+		if(optionVal == "예약자명"){
+			$('#peoplePick_input').removeClass('disappearInput');
+			$('#datePick_input').addClass('disappearInput');
+		}else if(optionVal == "날짜"){
+			$('#peoplePick_input').addClass('disappearInput');
+			$('#datePick_input').removeClass('disappearInput');
+		}else if(optionVal == "예약취소" || optionVal == "돌봄작성" || optionVal == "작성완료" || optionVal == "후기완료"){
+			$('#peoplePick_input').addClass('disappearInput');
+			$('#datePick_input').addClass('disappearInput');
+		}
+	}
+	
 	function checkEnter(event){
 		if(event.key == "Enter"){
 			readySearch();
 		}
 	}
 	
-	function readySearch(){
-		$('input[name=searchCate]').val($('.selectpicker option:selected').val());
-		console.log($('input[name=searchCate]').val());
-		$('form').submit();
+	function readySearch(optionVal){
+		var inputVal;
+		var checkBoolean=true;
+		
+		if(optionVal == "날짜"){
+			inputVal = $('#datePick_input').val();
+			checkBoolean = checkInputVal(inputVal);
+		}
+		
+		if(optionVal == "예약자명"){
+			inputVal = $('#peoplePick_input').val();
+			checkBoolean = checkInputVal(inputVal);
+		}
+		
+		if(checkBoolean){
+			$('input[name=searchCate]').val(optionVal);
+			$('form').submit();	
+		}
+	}
+	
+	function checkInputVal(inputVal){
+		if(inputVal.length == 0 ){
+			alert("검색내용을 입력해주세요");
+			return false;
+		}
+		return true;
 	}
 </script>
 	
@@ -101,7 +134,11 @@
 	      		<form action="${pageContext.request.contextPath}/admin/search">
 					<select class="selectpicker"> 
 						<option>날짜</option> 
-						<option>예약자명</option>  
+						<option>예약자명</option>
+						<option>예약취소</option>
+						<option>돌봄작성</option>
+						<option>작성완료</option>
+						<option>후기완료</option> 
 					</select>
 					<input type="hidden" class="bookFormInput" name="searchCate">
 	      			<input type="text" id="datePick_input" class="bookFormInput" name="searchDate" readonly>

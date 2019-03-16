@@ -34,7 +34,7 @@
 
 		<h2>오늘 하루는 어떠셨나요?</h2>
 		<!-- Portfolio Section -->
-		<div class="row">
+		<div class="row dolbomReviewRow">
 			<c:forEach var="review" items="${reviews}">
 				<div class="col-lg-4 col-sm-6 portfolio-item">
 					<div class="card h-100">

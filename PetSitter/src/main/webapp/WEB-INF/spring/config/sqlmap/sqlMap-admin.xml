@@ -26,7 +26,7 @@
 		<result column="dolbom_walk" property="walk"></result>
 		<result column="dolbom_remark" property="remark"></result>
 		<result column="dolbom_date" property="dolbomDate"></result>
-	</resultMap> 
+	</resultMap>
  
  	<select id="selectAllBook" resultMap="bookMap">
  		select *
@@ -49,7 +49,18 @@
  		  	<if test='searchCate == "예약자명"'>
  		  		book_name like '%${searchDate}%'
  		  	</if>
- 		  	
+ 		  	<if test='searchCate == "예약취소"'>
+ 		  		book_status = 'C'
+ 		  	</if>
+ 		  	<if test='searchCate == "돌봄작성"'>
+ 		  		book_status = 'W'
+ 		  	</if>
+ 		  	<if test='searchCate == "작성완료"'>
+ 		  		book_status = 'D'
+ 		  	</if>
+ 		  	<if test='searchCate == "후기완료"'>
+ 		  		book_status = 'R'
+ 		  	</if>
  		  </where>
  	</select>
 	

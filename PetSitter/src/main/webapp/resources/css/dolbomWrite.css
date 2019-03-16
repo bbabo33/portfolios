@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.row{
+	min-height: 365px;
+}
+
 .confirmBoard{
 	width : 60%;
 	border: 2px solid #b1adfc;
@@ -44,7 +48,7 @@
 
 .bookFormInput{
 	width:13%;
-	margin:-4px;
+	margin:-3px -4px -3px -3px;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -105,4 +109,5 @@ input[name=searchInput]{
 input[name=admin_search]{
 	border-radius:0px 5px 5px 0px !important;
 	vertical-align: baseline !important;
+	margin : -3px;
 }

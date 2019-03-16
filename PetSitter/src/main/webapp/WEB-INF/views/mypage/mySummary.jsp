@@ -48,7 +48,7 @@
 	
 	<div class="center_column">
 		<img src="${pageContext.request.contextPath }/resources/images/summaryDog.jpg">
-		<p><strong>펫시팅 이용내역</strong></p>
+		<p class="onlyP"><strong>펫시팅 이용내역</strong></p>
 			<div id="confirmText">
 				펫시팅을 이용하신 내용을 확인할 수 있습니다<br>
 				<span>후기작성</span>은 돌봄 플래너가 더 나은 서비스를 제공하도록 만듭니다.
@@ -76,7 +76,7 @@
 			      <c:choose>
 			      	  <c:when test="${list.bookStatus eq 'W' }">	
 					      <td><input type="button" class="btn" value="작성전"></td>
-					      <td></td>
+					      <td>내용 없음</td>
 				      </c:when>
 				      <c:when test="${list.bookStatus eq 'D' }">	
 					      <td class="${list.no}"><input type="button" class="btn btn-primary seeAdminWrite" value="일지보기"></td>
